@@ -1,0 +1,53 @@
+{% extends "list/layout.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <!-- top -->
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>View Grocery List</h1>
+        </div>
+        <div class="col-lg-6 float-right">
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <!-- Date Filtering-->
+                    <input type="date" class="form-control" id="dueDate">
+                </div>
+                <div class="col-lg-4">
+                    <input type="submit" class="btn btn-danger" id="filter" value="filter">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- // top -->
+    <!-- Grocery Cards -->
+    <div class="row mt-4">
+        <!--- -->
+        <!-- Loop This -->
+
+        {% for item  in gList %}
+        <div class="col-lg-4">
+
+            <div class="card">
+                <div class="card-body">
+                <a class = "cards" href="{% url 'modify_list' item.id %}">
+                    <h5 class="card-title">{{item.itemName}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{item.itemQuantity}}</h6>
+                    <p class="{{ item.textStyle }}">{{item.status }}</p>
+                </div>
+                </a>
+                </div>
+        </div>
+        {%endfor%}
+        
+
+        
+
+    </div>
+</div>
+
+
+{% endblock %}

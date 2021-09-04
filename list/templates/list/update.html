@@ -1,0 +1,36 @@
+{% extends "list/layout.html" %}
+{% block body %}
+    <div class="container mt-5">
+        <h1>Update Grocery List</h1>
+        <form action="{% url 'modify_list' item.id %}" method="post">
+        {% csrf_token %}
+            <div class="form-group">
+                <label>Item name</label>
+                <input type="text" class="form-control" name="item_name" value="{{item.itemName}}"/>
+            </div>
+            <div class="form-group">
+                <label>Item quantity</label>
+                <input type="text" class="form-control" name = "item_quant" value="{{item.itemQuantity}}"/>
+            </div>
+            <div class="form-group">
+                <label>Item status</label>
+                <select class="form-control" name="item_status" >
+                    <option id = "op-1" value="0" >PENDING</option>
+                    <option id = "op-2" value="1" >BOUGHT</option>
+                    <option id = "op-3" value="2" >NOT AVAILABLE</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" class="form-control"  name = "item_date" placeholder="Date" value = "{{item.dueDate|date:"Y-m-d"}}">
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-success">
+                <button class="btn btn-danger" data-id = "{{item.id }}" id ="delete">Delete</button>
+            </div>
+
+        </form>
+            
+</div>
+ {% endblock %}

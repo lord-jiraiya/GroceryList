@@ -1,0 +1,31 @@
+body {
+    padding: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.listing{
+     display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.list-item{
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    border: gray solid 0.5px;
+    height: 300spx;
+     width:100%;
+}
+
+div.list-item {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+a{
+  text-decoration: none;
+}
